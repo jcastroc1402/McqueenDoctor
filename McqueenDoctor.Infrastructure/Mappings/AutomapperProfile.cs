@@ -12,11 +12,11 @@ namespace McqueenDoctor.Infrastructure.Mappings
         public AutomapperProfile()
         {
             //Convierte la entidad al Dto y viceversa para evitar conflictos con las relaciones
-            CreateMap<VehicleRegister, VehicleRegisterDto>();
-            CreateMap<VehicleRegisterDto, VehicleRegister>();
+            CreateMap<VehicleRegister, VehicleRegisterDto>().ReverseMap();
 
-            CreateMap<UserInfo, UserInfoDto>();
-            CreateMap<UserInfoDto, UserInfo>();
+            CreateMap<UserInfo, UserInfoDto>().ReverseMap();
+
+            CreateMap<Security, SecurityDto>().ReverseMap();
         }
     }
 }

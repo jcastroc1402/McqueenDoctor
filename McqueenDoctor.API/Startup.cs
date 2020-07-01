@@ -55,8 +55,11 @@ namespace McqueenDoctor.API
             //Definir la inyeccion de dependencias
             services.AddTransient<IVehicleRegisterService, VehicleRegisterService>();
             services.AddTransient<IUserInfoService, UserInfoService>();
+            services.AddTransient<ISecurityService, SecurityService>();
+
             services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             services.AddTransient<IVehicleRegisterRepository, VehicleRegisterRepository>();
+            services.AddTransient<ISecurityRepository, SecurityRepository>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             //Configuracion de autenticacion

@@ -13,6 +13,7 @@ namespace McqueenDoctor.Infrastructure.Repositories
         private readonly ApplicationDbContext Context;
         private IVehicleRegisterRepository _vehiculeRegisterRepository;
         private IRepository<UserInfo> _userInfoRepository;
+        private ISecurityRepository _securityRepository;
 
         public UnitOfWork(ApplicationDbContext context)
         {
@@ -21,6 +22,7 @@ namespace McqueenDoctor.Infrastructure.Repositories
 
         public IVehicleRegisterRepository VehiculeRegisterRepository => _vehiculeRegisterRepository ?? new VehicleRegisterRepository(Context);
         public IRepository<UserInfo> UserInfoRepository => _userInfoRepository ?? new BaseRepository<UserInfo>(Context);
+        public ISecurityRepository SecurityRepository => _securityRepository ?? new SecurityRepository(Context);
 
         public void SaveChanges()
         {

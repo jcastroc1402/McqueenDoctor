@@ -10,6 +10,7 @@ namespace McqueenDoctor.Infrastructure.Data
 
         public DbSet<VehicleRegister> VehicleRegisters { get; set; }
         public DbSet<UserInfo> UsersInfo { get; set; }
+        public DbSet<Security> Securities { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
@@ -20,6 +21,9 @@ namespace McqueenDoctor.Infrastructure.Data
         {
             modelBuilder.ApplyConfiguration(new VehicleRegisterConfiguration());
             modelBuilder.ApplyConfiguration(new UserInfoConfiguration());
+            modelBuilder.ApplyConfiguration(new SecurityConfiguration());
+
+            //modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());        Tomar las configuraciones desde el ensamblador para evitar agregarlas una a una
         }
     }
 }
