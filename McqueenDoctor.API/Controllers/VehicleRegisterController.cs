@@ -14,6 +14,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using ExcelDataReader;
+using Microsoft.AspNetCore.Authorization;
 
 namespace McqueenDoctor.API.Controllers
 {
@@ -32,6 +33,7 @@ namespace McqueenDoctor.API.Controllers
             HostEnvironment = hostEnvironment;
         }
 
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> GetVehicleRegisters()
         {
